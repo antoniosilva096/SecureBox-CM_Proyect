@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SecureBox</string>
+
+
+    <!-- Menu drawer-->
+
+    <string name = "Option_Records">Records</string>
+    <string name = "Option_Settings">Settings</string>
+    <string name = "Option_Info">Info</string>
+
+
 </resources>
