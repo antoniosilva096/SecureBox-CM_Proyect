@@ -16,7 +16,7 @@
         />
 
     <item
-        android:id="@+id/Option_Settings"
+        android:id="@+id/Option_Info"
         android:title="@string/Option_Info"
         android:icon="@drawable/info_icon"
         />
