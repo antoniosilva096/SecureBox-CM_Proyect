@@ -4,14 +4,17 @@
 
     <!-- Menu drawer-->
 
-    <string name = "Option_Records">Records</string>
-    <string name = "Option_Settings">Settings</string>
-    <string name = "Option_Info">Info</string>
-    
-    
+    <string name="Option_Records">Records</string>
+    <string name="Option_Settings">Settings</string>
+    <string name="Option_Info">Info</string>
+    <string name="Option_Exit">Exit</string>
+
+
     <!-- DrawerLayout-->
     <string name="navigation_drawer_open">Open</string> <!-- Será el elemento que despliega nuestro menú lateral-->
-    <string name="navigation_drawer_close">Close</string> <!-- Será el elemento que esconde nuestro menú lateral-->
+    <string name="navigation_drawer_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Será el elemento que esconde nuestro menú lateral-->
 
 
 </resources>

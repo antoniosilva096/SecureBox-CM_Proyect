@@ -21,5 +21,11 @@
         android:icon="@drawable/info_icon"
         />
 
+    <item
+        android:id="@+id/Option_Exit"
+        android:title="@string/Option_Info"
+        android:icon="@drawable/exit_icon"
+        />
+
 
 </menu>
