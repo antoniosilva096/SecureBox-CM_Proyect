@@ -6,4 +6,5 @@
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryDark">#FF9800</color>
     <color name="colorAccent">#FF9800</color>
+    <color name="floatingButton">#2E47D6</color>
 </resources>

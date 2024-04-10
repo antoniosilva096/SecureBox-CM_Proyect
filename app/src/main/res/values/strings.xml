@@ -13,6 +13,22 @@
     <!-- DrawerLayout-->
     <string name="navigation_drawer_open">Open</string> <!-- Será el elemento que despliega nuestro menú lateral-->
     <string name="navigation_drawer_close">Close</string>
+
+
+    <!-- DrawerLayout-->
+    <string name="FAB_AddButton">Add</string>
+
+    <!-- Diseño AddRecord-->
+    
+    <string name="EtTitle">Title</string>
+    <string name="EtAccount">Account</string>
+    <string name="EtUserName">UserName</string>
+    <string name="EtPassword">Password</string>
+    <string name="EtUrl">Url</string>
+    <string name="EtNotes">Notes</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Será el elemento que esconde nuestro menú lateral-->
 

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.computacionmovil.securebox.OptionsRecords.Add_Record">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Título -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EtTitle"
+                android:hint="@string/EtTitle"
+                android:padding="15dp"
+                android:inputType="textCapWords|text"
+                android:textSize="25dp"
+                android:maxLines="1"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Cuenta -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EtAccount"
+                android:hint="@string/EtAccount"
+                android:padding="15dp"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:inputType="textCapWords|text"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Nombre de usuario -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EtUserName"
+                android:hint="@string/EtUserName"
+                android:padding="15dp"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:inputType="textCapWords|text"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">>
+
+            <EditText
+                android:padding="15dp"
+                android:id="@+id/EtPassword"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:hint="@string/EtPassword"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Url -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EtUrl"
+                android:hint="@string/EtUrl"
+                android:padding="15dp"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:inputType="textWebEmailAddress"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Notas -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EtNotes"
+                android:hint="@string/EtNotes"
+                android:padding="15dp"
+                android:textSize="18sp"
+                android:height="150dp"
+                android:gravity="start"
+                android:inputType="textCapSentences|textMultiLine"
+                android:fontFamily="@font/nunitosans_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
