@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1097855556958",
+    "project_id": "box-7fa44",
+    "storage_bucket": "box-7fa44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097855556958:android:361680bb51e9d4f72b83cf",
+        "android_client_info": {
+          "package_name": "com.example.securebox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVog-UuBOnlfbdXxd9ixzKXwWcDf1z9n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

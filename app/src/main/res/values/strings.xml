@@ -14,7 +14,6 @@
     <string name="navigation_drawer_open">Open</string> <!-- Será el elemento que despliega nuestro menú lateral-->
     <string name="navigation_drawer_close">Close</string>
 
-
     <!-- DrawerLayout-->
     <string name="FAB_AddButton">Add</string>
 
@@ -27,6 +26,8 @@
     <string name="EtUrl">Url</string>
     <string name="EtNotes">Notes</string>
 
+    <!-- Menú save password-->
+    <string name="save_password">Save</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
