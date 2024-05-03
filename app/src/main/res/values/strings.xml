@@ -29,6 +29,21 @@
     <!-- Menú save password-->
     <string name="save_password">Save</string>
 
+    <!-- Item password-->
+    <string name="Item_title">Title</string>
+    <string name="Item_account">Account</string>
+    <string name="Item_UserName">UserName</string>
+    <string name="Item_password">Password</string>
+    <string name="Item_url">Url</string>
+    <string name="Item_notes">Notes</string>
+
+    <!-- Menu fragmento Records-->
+    <string name="Numero_registros">Number of records</string>
+
+    <!-- Ventana modal - Numero de registros-->
+    <string name="TxtTotal">Total of records</string>
+    <string name="Total"> -- </string>
+    <string name="BtnOk">Ok</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Será el elemento que esconde nuestro menú lateral-->
