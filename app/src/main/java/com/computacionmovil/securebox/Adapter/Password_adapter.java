@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.computacionmovil.securebox.Detalle.Detalle_registro;
 import com.computacionmovil.securebox.Modelo.Passwords;
 import com.example.securebox.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -53,6 +54,7 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
     @Override
     public void onBindViewHolder(@NonNull HolderPassword holder, int position) {
         Passwords modelo_password = passwordsList.get(position);
+        String id = modelo_password.getId();
         String titulo = modelo_password.getTitle();
         String cuenta = modelo_password.getAccount();
         String nombreUsuario = modelo_password.getUsername();
@@ -62,6 +64,20 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
 
         holder.Item_titulo.setText(titulo);
         holder.Item_cuenta.setText(cuenta);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Usuario presiona en el item*/
+                Intent intent = new Intent(context, Detalle_registro.class);
+                /*Enviamos el dato id a la actividad Detalle_registro*/
+                Log.d("identificador",id);
+                intent.putExtra("Id_registro", id);
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override

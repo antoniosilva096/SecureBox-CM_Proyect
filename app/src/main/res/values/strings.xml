@@ -18,7 +18,7 @@
     <string name="FAB_AddButton">Add</string>
 
     <!-- Diseño AddRecord-->
-    
+
     <string name="EtTitle">Title</string>
     <string name="EtAccount">Account</string>
     <string name="EtUserName">UserName</string>
@@ -45,7 +45,75 @@
     <string name="Total"> -- </string>
     <string name="BtnOk">Ok</string>
 
+    <!-- Detalle registro-->
+
+    <string name="Txt_D_Titulo">Title: </string>
+    <string name="D_Titulo"> -- </string>
+    <string name="Txt_D_Cuenta">Account: </string>
+    <string name="D_Cuenta"> -- </string>
+    <string name="Txt_D_NombreUsuario">Username: </string>
+    <string name="D_NombreUsuario"> -- </string>
+    <string name="Txt_D_Password">Password: </string>
+    <string name="D_Password"> -- </string>
+    <string name="Txt_D_SitioWeb">Url: </string>
+    <string name="D_SitioWeb"> -- </string>
+    <string name="Txt_D_Nota">Note: </string>
+    <string name="D_Nota"> -- </string>
+
+    <!--Cuadro de diálogo editar - eliminar registro-->
+    <string name="Btn_Editar_Registro">Edit</string>
+    <string name="Btn_Eliminar_Registro">Delete</string>
+
+    <!--Cuadro de diálogo - ordenar registros-->
+    <string name="Btn_Nuevos">Nuevos</string>
+    <string name="Btn_Pasados">Pasados</string>
+    <string name="Btn_Asc">A-Z</string>
+    <string name="Btn_Des">Z-A</string>
+
+    <!--Ajustes-->
+    <string name="Txt_Ajustes">Ajustes</string>
+    <string name="Eliminar_Todos_Registros">Eliminar todos los registros</string>
+    <string name="Exportar_Archivo">Exportar archivo CSV</string>
+    <string name="Importar_Archivo">Importar archivo CSV</string>
+    <string name="Cambiar_password_maestra">Cambiar contraseña maestra</string>
+
+    <!--Cuadro de diálogo mensaje-->
+    <string name="Pregunta_Txt">¿Estás seguro(a) de eliminar todos los registros?</string>
+    <string name="Btn_Si">Si, estoy de acuerdo</string>
+    <string name="Btn_Cancelar">Cancelar</string>
+    <string name="Btn_cerrar_imagen">Cerrar</string>
+
+    <!--Cuadro de diálogo - password maestra-->
+    <string name="TXT_password_maestra">Su contraseña maestra es:</string>
+    <string name="Password_maestra"> -- </string>
+    <string name="Et_nuevo_password_maestra">Nueva contraseña maestra</string>
+    <string name="Et_C_nuevo_password_maestra">Confirme contraseña maestra</string>
+    <string name="Btn_cambiar_password_maestra">Cambiar</string>
+    <string name="Btn_cancelar_password_maestra">Cancelar</string>
+
+    <!--Registro-->
+    <string name="TXTBienvenidos">¡Bienvenidos(as)!</string>
+    <string name="TXTMensaje">Por favor introduzca una contraseña maestra</string>
+    <string name="EtPasswordU">Contraseña</string>
+    <string name="EtCPassword">Confirmar contraseña</string>
+    <string name="BtnRegistrar">Registrar</string>
+
+    <!--Login-->
+    <string name="BtnIngresar">Ingresar</string>
+
+    <!--Inicio sesión biométrico-->
+    <string name="TXT_otro_metodo">Another method</string>
+    <string name="BtnInicioSesionBiometrico">Biometrics Authentication</string>
+
+    <!--Información de la aplicación-->
+    <string name="DesarrolladorTXT">Desarrollado por: Antonio Silva , Javier Lara y Rafael Díaz</string>
+    <string name="AsignaturaTXT">Aplicación desarrollada para la asignatura CM de la universidad de Sevilla</string>
+    <string name="VersionTXT">Versión: 1.0</string>
+
+    <string name="Ir_github">Ir al repositorio en Github</string>
+
     <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Será el elemento que esconde nuestro menú lateral-->
 
 

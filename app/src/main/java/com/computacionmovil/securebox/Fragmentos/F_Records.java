@@ -86,6 +86,7 @@ public class F_Records extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot document : task.getResult()) {
+                                String id = document.getId();
                                 String title = document.getString("Title");
                                 String account = document.getString("Account");
                                 String username = document.getString("UserName");
@@ -93,7 +94,7 @@ public class F_Records extends Fragment {
                                 String url = document.getString("Url");
                                 String notes = document.getString("Notes");
 
-                                Passwords registro = new Passwords(title, account, username, password, url, notes);
+                                Passwords registro = new Passwords(id, title, account, username, password, url, notes);
 
                                 resultados.add(registro);
                             }
@@ -121,6 +122,7 @@ public class F_Records extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.Numero_registros){
+
             visualizar_total_registros();
             return true;
         }

@@ -1,9 +1,10 @@
 package com.computacionmovil.securebox.Modelo;
 
 public class Passwords {
-    String title, account, username, password, url, notes;
+    String id, title, account, username, password, url, notes;
 
-    public Passwords(String title, String account, String username, String password, String url, String notes) {
+    public Passwords(String id, String title, String account, String username, String password, String url, String notes) {
+        this.id = id;
         this.title = title;
         this.account = account;
         this.username = username;
@@ -12,6 +13,9 @@ public class Passwords {
         this.notes = notes;
     }
 
+    public String getId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }

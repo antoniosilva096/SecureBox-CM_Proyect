@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar; //Importante importar el mismo toolbar
 
 import com.computacionmovil.securebox.Fragmentos.F_Records;
 import com.computacionmovil.securebox.Fragmentos.F_Settings;
+import com.computacionmovil.securebox.Fragmentos.F_info;
 import com.example.securebox.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -74,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(id == R.id.Option_Settings){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new F_Settings()).commit();
+        }
+
+        if(id == R.id.Option_Info){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new F_info()).commit();
         }
 
         if (id == R.id.Option_Exit){
