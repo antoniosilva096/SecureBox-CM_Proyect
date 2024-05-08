@@ -20,26 +20,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.computacionmovil.securebox.Detalle.Detalle_registro;
+import com.computacionmovil.securebox.Fragmentos.F_Records;
+import com.computacionmovil.securebox.MainActivity;
 import com.computacionmovil.securebox.Modelo.Passwords;
+import com.computacionmovil.securebox.OptionsRecords.Add_Record;
 import com.example.securebox.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
+
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+
 
 import java.util.ArrayList;
-import java.util.Map;
+
 
 public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.HolderPassword>{
 
     private Context context;
     private ArrayList<Passwords> passwordsList;
+    Dialog dialogo;
 
     public Password_adapter(Context context, ArrayList<Passwords> passwordsList) {
         this.context = context;
         this.passwordsList = passwordsList;
+        this.dialogo = new Dialog(context);
     }
 
     @NonNull
@@ -52,7 +58,7 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderPassword holder, int position) {
+    public void onBindViewHolder(@NonNull HolderPassword holder, @SuppressLint("RecyclerView") int position) {
         Passwords modelo_password = passwordsList.get(position);
         String id = modelo_password.getId();
         String titulo = modelo_password.getTitle();
@@ -78,6 +84,24 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
         });
 
 
+        holder.Ib_mas_opciones.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Opciones_Editar_Eliminar(
+                        ""+ position,
+                        ""+ id,
+                        ""+ titulo,
+                        ""+ cuenta,
+                        ""+ nombreUsuario,
+                        ""+ password,
+                        ""+ url,
+                        ""+ nota
+
+                );
+            }
+        });
+
+
     }
 
     @Override
@@ -89,6 +113,7 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
     class HolderPassword extends RecyclerView.ViewHolder{
 
         TextView Item_titulo, Item_cuenta, Item_nombre_usuario, Item_password, Item_sitio_web, Item_nota;
+        ImageButton Ib_mas_opciones;
 
 
         public HolderPassword(@NonNull View itemView) {
@@ -100,10 +125,79 @@ public class Password_adapter  extends RecyclerView.Adapter<Password_adapter.Hol
             Item_password = itemView.findViewById(R.id.Item_password);
             Item_sitio_web = itemView.findViewById(R.id.Item_sitio_web);
             Item_nota = itemView.findViewById(R.id.Item_nota);
+            Ib_mas_opciones = itemView.findViewById(R.id.Ib_mas_opciones); // Inicializa Ib_mas_opciones
 
 
 
         }
+    }
+
+    private  void eliminarRegistro(String id){
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("records").document(id)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Registro eliminado exitosamente
+                        Toast.makeText(context, "Registro eliminado correctamente", Toast.LENGTH_SHORT).show();
+                        // Aquí puedes realizar acciones adicionales después de la eliminación
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Error al intentar eliminar el registro
+                        Toast.makeText(context,"Error al eliminar el registro", Toast.LENGTH_SHORT).show();
+                        Log.e("Firebase", "Error al eliminar el registro", e);
+                    }
+                });
+    }
+
+    private void Opciones_Editar_Eliminar(String posicion, String id, String titulo, String cuenta,
+                                          String nombre_usuario, String password, String sitio_web,
+                                          String nota){
+        Button Btn_Editar_Registro, Btn_Eliminar_Registro;
+
+        dialogo.setContentView(R.layout.cuadro_dialogo_editar_eliminar);
+
+        Btn_Editar_Registro = dialogo.findViewById(R.id.Btn_Editar_Registro);
+        Btn_Eliminar_Registro = dialogo.findViewById(R.id.Btn_Eliminar_Registro);
+
+        Btn_Editar_Registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Add_Record.class);
+                intent.putExtra("POSICION", posicion);
+                intent.putExtra("ID", id);
+                intent.putExtra("TITULO", titulo);
+                intent.putExtra("CUENTA", cuenta);
+                intent.putExtra("NOMBRE_USUARIO", nombre_usuario);
+                intent.putExtra("PASSWORD", password);
+                intent.putExtra("SITIO_WEB", sitio_web);
+                intent.putExtra("NOTA", nota);
+                intent.putExtra("MODO_EDICION", true);
+                context.startActivity(intent);
+                dialogo.dismiss();
+            }
+        });
+
+        Btn_Eliminar_Registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eliminarRegistro(id);
+                Intent intent = new Intent(context, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                Toast.makeText(context, "Registro eliminado", Toast.LENGTH_SHORT).show();
+                dialogo.dismiss();
+            }
+        });
+
+        dialogo.show();
+        dialogo.setCancelable(true);
     }
 
 

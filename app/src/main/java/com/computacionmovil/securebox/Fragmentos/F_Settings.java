@@ -1,66 +1,128 @@
 package com.computacionmovil.securebox.Fragmentos;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.computacionmovil.securebox.MainActivity;
 import com.example.securebox.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link F_Settings#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+
 public class F_Settings extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    TextView Eliminar_todos_registros;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public F_Settings() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment F_Settings.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static F_Settings newInstance(String param1, String param2) {
-        F_Settings fragment = new F_Settings();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    Dialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_f__settings, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_f__settings, container, false);
+
+        Eliminar_todos_registros = view.findViewById(R.id.Eliminar_Todos_Registros);
+        dialog = new Dialog(getActivity());
+
+        Eliminar_todos_registros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog_eliminar_Registros();
+            }
+        });
+        return view;
+    }
+
+    private void Dialog_eliminar_Registros() {
+
+        Button Btn_Si, Btn_Cancelar;
+
+        dialog.setContentView(R.layout.cuadro_dialogo_eliminar_todos_egistros);
+
+
+        Btn_Si = dialog.findViewById(R.id.Btn_Si);
+        Btn_Cancelar = dialog.findViewById(R.id.Btn_Cancelar);
+
+        Btn_Si.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EliminarTodosRegistros();
+                startActivity(new Intent(getActivity(), MainActivity.class));
+                Toast.makeText(getActivity(), "Se ha eliminado todos los registros", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        Btn_Cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+        dialog.setCancelable(false);
+
+
+    }
+
+    private void EliminarTodosRegistros() {
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        CollectionReference collectionRef = db.collection("records");
+
+        collectionRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
+
+                        // Iterar sobre cada documento
+                        for (DocumentSnapshot document : documents) {
+                            // Eliminar el documento
+                            db.collection("records").document(document.getId())
+                                    .delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("Firestore", "Documento eliminado correctamente");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w("Firestore", "Error al eliminar documento", e);
+                                        }
+                                    });
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Firestore", "Error al obtener documentos", e);
+                    }
+                });
+
+
     }
 }
+
+

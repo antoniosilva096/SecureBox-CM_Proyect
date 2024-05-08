@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">SecureBox</string>
+
+    <!-- Menú lateral -->
+
+    <string name="Option_Records">Registros</string>
+    <string name="Option_Settings">Configuración</string>
+    <string name="Option_Info">Información</string>
+    <string name="Option_Exit">Salir</string>
+
+    <!-- Elementos de DrawerLayout -->
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+
+    <!-- Botón flotante (FAB) -->
+    <string name="FAB_AddButton">Agregar</string>
+
+    <!-- Diseño para añadir un registro -->
+    <string name="EtTitle">Título</string>
+    <string name="EtAccount">Cuenta</string>
+    <string name="EtUserName">Nombre de Usuario</string>
+    <string name="EtPassword">Contraseña</string>
+    <string name="EtUrl">URL</string>
+    <string name="EtNotes">Notas</string>
+
+    <!-- Menú para guardar la contraseña -->
+    <string name="save_password">Guardar</string>
+
+    <!-- Detalles del ítem de la contraseña -->
+    <string name="Item_title">Título</string>
+    <string name="Item_account">Cuenta</string>
+    <string name="Item_UserName">Nombre de Usuario</string>
+    <string name="Item_password">Contraseña</string>
+    <string name="Item_url">URL</string>
+    <string name="Item_notes">Notas</string>
+
+    <!-- Menu fragmento Records-->
+    <string name="Menu_Numero_registros">Número de registros</string>
+    <string name="Menu_Buscar_registros">Buscar registros</string>
+
+    <!-- Ventana modal - Número de registros -->
+    <string name="TxtTotal">Total de registros</string>
+    <string name="Total"> -- </string>
+    <string name="BtnOk">Aceptar</string>
+
+    <!-- Detalle del registro -->
+    <string name="Txt_D_Titulo">Título: </string>
+    <string name="D_Titulo"> -- </string>
+    <string name="Txt_D_Cuenta">Cuenta: </string>
+    <string name="D_Cuenta"> -- </string>
+    <string name="Txt_D_NombreUsuario">Nombre de Usuario: </string>
+    <string name="D_NombreUsuario"> -- </string>
+    <string name="Txt_D_Password">Contraseña: </string>
+    <string name="D_Password"> -- </string>
+    <string name="Txt_D_SitioWeb">URL: </string>
+    <string name="D_SitioWeb"> -- </string>
+    <string name="Txt_D_Nota">Nota: </string>
+    <string name="D_Nota"> -- </string>
+
+    <!-- Diálogo para editar o eliminar un registro -->
+    <string name="Btn_Editar_Registro">Editar</string>
+    <string name="Btn_Eliminar_Registro">Eliminar</string>
+
+    <!-- Diálogo para ordenar registros -->
+    <string name="Btn_Nuevos">Nuevos</string>
+    <string name="Btn_Pasados">Pasados</string>
+    <string name="Btn_Asc">A-Z</string>
+    <string name="Btn_Des">Z-A</string>
+
+    <!-- Ajustes -->
+    <string name="Txt_Ajustes">Ajustes</string>
+    <string name="Eliminar_Todos_Registros">Eliminar todos los registros</string>
+    <string name="Exportar_Archivo">Exportar archivo CSV</string>
+    <string name="Importar_Archivo">Importar archivo CSV</string>
+    <string name="Cambiar_password_maestra">Cambiar contraseña maestra</string>
+
+    <!-- Mensaje del cuadro de diálogo -->
+    <string name="Pregunta_Txt">¿Estás seguro(a) de eliminar todos los registros?</string>
+    <string name="Btn_Si">Sí, estoy de acuerdo</string>
+    <string name="Btn_Cancelar">Cancelar</string>
+    <string name="Btn_cerrar_imagen">Cerrar</string>
+
+    <!-- Inicio de sesión -->
+    <string name="BtnIngresar">Iniciar Sesión</string>
+    <string name="BtnRegistrar">¿Aún no tienes una cuenta? Regístrate ahora</string>
+    <string name="TxtBienvenida">¡BIENVENIDO DE NUEVO!</string>
+
+    <!-- Registro -->
+    <string name="hintNombreUsuario">Nombre</string>
+    <string name="hintCorreo">Correo electrónico</string>
+    <string name="hintClave">Contraseña</string>
+
+    <!-- Inicio de sesión biométrico -->
+    <string name="TXT_otro_metodo">Otro método</string>
+    <string name="BtnInicioSesionBiometrico">Autenticación biométrica</string>
+
+    <!-- Información de la aplicación -->
+    <string name="DesarrolladorTXT">Desarrollado por: Antonio Silva, Javier Lara y Rafael Díaz</string>
+    <string name="AsignaturaTXT">Aplicación desarrollada para la asignatura CM de la Universidad de Sevilla</string>
+    <string name="VersionTXT">Versión: 1.0</string>
+
+    <string name="Ir_github">Ir al repositorio en GitHub</string>
+
+    <!-- Texto de ejemplo -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string> <!-- Elemento que oculta nuestro menú lateral -->
+
+</resources>

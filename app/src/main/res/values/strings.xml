@@ -38,7 +38,8 @@
     <string name="Item_notes">Notes</string>
 
     <!-- Menu fragmento Records-->
-    <string name="Numero_registros">Number of records</string>
+    <string name="Menu_Numero_registros">Number of records</string>
+    <string name="Menu_Buscar_registros">Search Records</string>
 
     <!-- Ventana modal - Numero de registros-->
     <string name="TxtTotal">Total of records</string>
@@ -83,34 +84,28 @@
     <string name="Btn_Cancelar">Cancelar</string>
     <string name="Btn_cerrar_imagen">Cerrar</string>
 
-    <!--Cuadro de diálogo - password maestra-->
-    <string name="TXT_password_maestra">Su contraseña maestra es:</string>
-    <string name="Password_maestra"> -- </string>
-    <string name="Et_nuevo_password_maestra">Nueva contraseña maestra</string>
-    <string name="Et_C_nuevo_password_maestra">Confirme contraseña maestra</string>
-    <string name="Btn_cambiar_password_maestra">Cambiar</string>
-    <string name="Btn_cancelar_password_maestra">Cancelar</string>
-
-    <!--Registro-->
-    <string name="TXTBienvenidos">¡Bienvenidos(as)!</string>
-    <string name="TXTMensaje">Por favor introduzca una contraseña maestra</string>
-    <string name="EtPasswordU">Contraseña</string>
-    <string name="EtCPassword">Confirmar contraseña</string>
-    <string name="BtnRegistrar">Registrar</string>
 
     <!--Login-->
-    <string name="BtnIngresar">Ingresar</string>
+    <string name="BtnIngresar">Sign-In</string>
+    <string name="BtnRegistrar">Not have account yet? Register Now</string>
+    <string name="TxtBienvenida">WELCOME BACK!</string>
+
+    <!--Registro-->
+    <string name="hintNombreUsuario">Name</string>
+    <string name="hintCorreo">Email</string>
+    <string name="hintClave">Password</string>
+
 
     <!--Inicio sesión biométrico-->
     <string name="TXT_otro_metodo">Another method</string>
     <string name="BtnInicioSesionBiometrico">Biometrics Authentication</string>
 
     <!--Información de la aplicación-->
-    <string name="DesarrolladorTXT">Desarrollado por: Antonio Silva , Javier Lara y Rafael Díaz</string>
-    <string name="AsignaturaTXT">Aplicación desarrollada para la asignatura CM de la universidad de Sevilla</string>
-    <string name="VersionTXT">Versión: 1.0</string>
+    <string name="DesarrolladorTXT">Developed by: Antonio Silva , Javier Lara y Rafael Díaz</string>
+    <string name="AsignaturaTXT">Application developed for the CM course at the University of Seville</string>
+    <string name="VersionTXT">Version: 1.0</string>
 
-    <string name="Ir_github">Ir al repositorio en Github</string>
+    <string name="Ir_github">Go to Github repository</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 

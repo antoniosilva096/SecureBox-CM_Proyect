@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -17,10 +18,15 @@ import com.computacionmovil.securebox.Fragmentos.F_Settings;
 import com.computacionmovil.securebox.Fragmentos.F_info;
 import com.example.securebox.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawer;
+    FirebaseFirestore mFirestore;
+    FirebaseAuth mAuth;
+
 
 
     @Override
@@ -83,7 +89,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if (id == R.id.Option_Exit){
-            Toast.makeText(this, "Logout...", Toast.LENGTH_SHORT).show();
+
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

@@ -23,7 +23,7 @@
 
     <item
         android:id="@+id/Option_Exit"
-        android:title="@string/Option_Info"
+        android:title="@string/Option_Exit"
         android:icon="@drawable/exit_icon"
         />
 

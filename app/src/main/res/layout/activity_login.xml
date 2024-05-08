@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.computacionmovil.securebox.RegisterActivity">
+    tools:context="com.computacionmovil.securebox.LoginActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -26,22 +26,29 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="40dp"
                 android:layout_width="300dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"
                 app:lottie_imageAssetsFolder="assets"
-                app:lottie_fileName="registro.json"
+                app:lottie_fileName="login4.json"
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true"/>
 
-            <EditText
-                android:id="@+id/nombre"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/hintNombreUsuario"
-                android:inputType="textPersonName" />
+                android:text="@string/TxtBienvenida"
+                android:textAlignment="center"
+                android:fontFamily="@font/nunitosans_bold"
+                android:textSize="34sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
 
             <EditText
                 android:id="@+id/correo"
@@ -49,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/hintCorreo"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/contrasena"
@@ -59,20 +66,54 @@
                 android:hint="@string/hintClave"
                 android:inputType="textPassword" />
 
-            <Space
+            <Button
+                android:id="@+id/btn_ingresar"
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:text="@string/BtnIngresar"
+                android:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="50dp" />
+
 
             <Button
-                android:id="@+id/btn_registro"
-                android:text="Registrarme"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/colorPrimary"
-                android:textColor="#fff"
-                android:layout_marginTop="20dp"
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
                 android:fontFamily="@font/nunitosans_regular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="@string/BtnRegistrar"
+                android:textColor="#FFFF"
+                android:textSize="12sp"
+                app:cornerRadius="50dp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+
+
+                <!--Botón inicio sesión biométrico-->
+                <Button
+                    android:id="@+id/BtnInicioSesionBiometrico"
+                    android:text="@string/BtnInicioSesionBiometrico"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:textColor="#fff"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

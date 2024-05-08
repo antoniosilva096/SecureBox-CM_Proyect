@@ -1,4 +1,4 @@
-package com.example.securebox;
+package com.computacionmovil.securebox;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.View;
 
-import com.computacionmovil.securebox.MainActivity;
+import com.example.securebox.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

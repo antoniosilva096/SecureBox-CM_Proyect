@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,7 +56,10 @@ public class F_Records extends Fragment {
         FAB_AddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Add_Record.class));
+                Intent intent = new Intent(getActivity(), Add_Record.class);
+                intent.putExtra("MODO_EDICION", false);
+                startActivity(intent);
+
             }
         });
 
@@ -67,13 +71,20 @@ public class F_Records extends Fragment {
         obtenerRegistrosBD(new FirestoreCallback() {
             @Override
             public void onCallback(ArrayList<Passwords> resultados) {
-                // Luego de obtener los registros, actualiza el RecyclerView
-                Log.d("DATOS", String.valueOf(resultados.get(0).getTitle()));
-                passwordAdapter = new Password_adapter(getActivity(), resultados);
-                recyclerView_Records.setAdapter(passwordAdapter);
+                if (resultados.isEmpty()) {
+                    // No hay documentos en Firestore, no se realiza ninguna acción
+                    Log.d("Firestore", "No hay documentos en la colección 'records'");
+                    // Puedes mostrar un mensaje o realizar alguna acción apropiada aquí
+                } else {
+                    // Hay documentos, actualiza el RecyclerView con los resultados
+                    Log.d("DATOS", String.valueOf(resultados.get(0).getTitle()));
+                    passwordAdapter = new Password_adapter(getActivity(), resultados);
+                    recyclerView_Records.setAdapter(passwordAdapter);
+                }
             }
         });
     }
+
 
     private void obtenerRegistrosBD(final FirestoreCallback firestoreCallback) {
         String nombreColeccion = "records";
@@ -107,21 +118,92 @@ public class F_Records extends Fragment {
                 });
     }
 
+
+
+
+
+    private ArrayList<Passwords> busquedaIndexada(String busqueda) {
+
+        ArrayList<Passwords> resultados = new ArrayList<>();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String nombreColeccion = "records";
+        String campoBuscar = "Title";
+
+        db.collection(nombreColeccion)
+                .whereEqualTo(campoBuscar, busqueda)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                String id = document.getId();
+                                String title = document.getString("Title");
+                                String account = document.getString("Account");
+                                String username = document.getString("UserName");
+                                String password = document.getString("Password");
+                                String url = document.getString("Url");
+                                String notes = document.getString("Notes");
+
+                                Passwords registro = new Passwords(id, title, account, username, password, url, notes);
+
+                                resultados.add(registro);
+                            }
+
+                        } else {
+                            Log.d("Firestore", "Error al realizar la búsqueda: ", task.getException());
+                            // Llama al callback con una lista vacía en caso de error
+
+                        }
+                    }
+
+                });
+        return resultados;
+    }
+
     // Interfaz de callback para manejar el resultado de Firestore
     private interface FirestoreCallback {
         void onCallback(ArrayList<Passwords> resultados);
     }
 
+    private void BuscarRegistros(String consulta) {
+        ArrayList<Passwords> resultados = busquedaIndexada(consulta);
+        passwordAdapter = new Password_adapter(getActivity(),resultados);
+        recyclerView_Records.setAdapter(passwordAdapter);
+
+
+    }
+
+
+
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_fragmento_records, menu);
+/*
+        MenuItem item = menu.findItem(R.id.Buscar_registros);
+        SearchView searchView = (SearchView)item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                BuscarRegistros(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                BuscarRegistros(newText);
+                return true;
+            }
+        });*/
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.Numero_registros){
+        if (id == R.id.menu_numero_registros){
 
             visualizar_total_registros();
             return true;
@@ -133,6 +215,12 @@ public class F_Records extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        cargarRegistros();
+        super.onResume();
     }
 
     private void visualizar_total_registros(){
